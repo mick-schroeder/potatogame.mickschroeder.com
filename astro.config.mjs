@@ -11,5 +11,13 @@ export default defineConfig({
       plugins: [tailwindcss()],
 	},
 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'ga'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   integrations: [react()],
 });
