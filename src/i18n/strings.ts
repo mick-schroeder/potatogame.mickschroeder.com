@@ -28,8 +28,6 @@ type Strings = {
 	cardLevel: string;
 	cardGoal: string;
 	cardHint: string;
-	cardBoost: { label: string; value: string };
-	cardTimer: { label: string; value: string };
 	featuresEyebrow: string;
 	featuresTitle: string;
 	featuresLead: string;
@@ -43,7 +41,6 @@ type Strings = {
 		title: string;
 		lead: string;
 		copyLink: string;
-		directUrlLabel: string;
 	};
 	footerBlurb: string;
 	footerLinks: { appStore: string; github: string; author: string; privacy: string };
@@ -62,12 +59,12 @@ const translations: Record<Locale, Strings> = {
 		navAuthor: "mickschroeder.com",
 		navCta: "Get on the App Store",
 		heroBadges: {
-			primary: "Gravity puzzle on iOS",
-			secondary: "MIT licensed & open source",
+			primary: "Free game on iOS + Mac",
+			secondary: "Open source & MIT licensed",
 		},
 		heroTitle: "Gravity-based emoji puzzles where you make potatoes.",
 		heroBody:
-			"Tilt your device to shift the emoji layout using gravity. When two or more matching emojis touch, tap the cluster to merge them—keep evolving until you make a potato.",
+			"Tilt your device to shift the emoji layout using gravity. When two or more matching emojis touch, tap the cluster to merge them, keep evolving until you make a potato.",
 		ctaDownload: "Download on the App Store",
 		ctaGithub: "View source on GitHub",
 		ctaAuthor: "Made by Mick Schroeder",
@@ -90,10 +87,8 @@ const translations: Record<Locale, Strings> = {
 		cardLevel: "Potato-based entertainment",
 		cardGoal: "Potato Game",
 		cardHint: "Tilt to rearrange, then tap to fuse.",
-		cardBoost: { label: "Cost", value: "Free" },
-		cardTimer: { label: "Fun", value: "100%" },
 		featuresEyebrow: "What is inside",
-		featuresTitle: "Built for cozy, relazing play",
+		featuresTitle: "Built for cosy, relaxing play",
 		featuresLead:
 			"Tilt your device to steer the board, create clusters, and merge your way to make a potato.",
 		features: [
@@ -111,11 +106,11 @@ const translations: Record<Locale, Strings> = {
 			},
 			{
 				name: "More levels",
-				body: "1,000 free levels to play right away, plus level packs to purchase for even more challenges.",
+				body: "1,000 free levels to play right away, plus level packs to purchase for even more content.",
 			},
 		],
 		screenshotsTitle: "Screenshots",
-		screenshotsLead: "A peek at the gravity puzzles, emoji merges, and warm brown UI in Potato Game.",
+		screenshotsLead: "A peek at the levels, gameplay, and native Apple UI in Potato Game.",
 		stats: [
 			{
 				label: "Levels",
@@ -136,17 +131,16 @@ const translations: Record<Locale, Strings> = {
 		openSource: {
 			eyebrow: "MIT licensed & open source",
 			title: "See how the potatoes are made",
-			body: "Peek at the code, file issues, or contribute improvements for future updates under the MIT license.",
-			button: "View source on Github",
+			body: "Peek at the code, file issues, or contribute improvements for future updates under the MIT licence.",
+			button: "View source on GitHub",
 		},
 		privacy: {
 			eyebrow: "Privacy Policy",
 			title: "Your data, respected",
 			lead: "Read the full policy, including analytics, cloud saves, and contact info.",
 			copyLink: "Read the Privacy Policy",
-			directUrlLabel: "Direct URL",
 		},
-		footerBlurb: "A warm, brown-toned gravity emoji puzzle for iOS.",
+		footerBlurb: "A fun, potato-based gravity matching puzzle for iOS.",
 		footerLinks: {
 			appStore: "App Store",
 			github: "GitHub",
@@ -194,8 +188,6 @@ const translations: Record<Locale, Strings> = {
 		cardLevel: "Leibhéal 7: claonadh an úllord",
 		cardGoal: "Cuir 3 liomóid le chéile",
 		cardHint: "Claon ar chlé chun iad a scaoileadh le chéile, ansin tapáil chun cumasc.",
-		cardBoost: { label: "Luas", value: "Drift Imtharraingthe" },
-		cardTimer: { label: "Amadóir", value: "01:42 fágtha" },
 		featuresEyebrow: "Cad atá istigh",
 		featuresTitle: "Tógtha do spraoi cliste, tadhlach",
 		featuresLead:
@@ -248,7 +240,6 @@ const translations: Record<Locale, Strings> = {
 			title: "Do shonraí, le meas",
 			lead: "Léigh an polasaí iomlán—anailísíocht, sábhálacha néil, agus eolas teagmhála.",
 			copyLink: "Léigh an Polasaí Príobháideachais",
-			directUrlLabel: "URL díreach",
 		},
 		footerBlurb: "Puzal emoji donn te le himtharraingt do iOS.",
 		footerLinks: {
