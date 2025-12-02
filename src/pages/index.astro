@@ -2,18 +2,31 @@
 import BaseLayout from "../layouts/base.astro";
 import { Badge } from "../components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../components/ui/card";
+import { Image } from "astro:assets";
+import screenshot1 from "../assets/screenshot-1.png";
+import screenshot2 from "../assets/screenshot-2.png";
+import screenshot3 from "../assets/screenshot-3.png";
+import screenshot4 from "../assets/screenshot-4.png";
 import { defaultLocale, getStrings } from "../i18n/strings";
+import { siteConfig } from "../config/site";
 
 const locale = Astro.currentLocale ?? defaultLocale;
 const t = getStrings(locale);
 const localizedPath = locale === defaultLocale ? "" : `/${locale}`;
 
-const appStoreUrl = "https://apps.apple.com/app/id0000000000";
-const macAppStoreUrl = "https://apps.apple.com/us/app/id0000000000?platform=mac";
-const githubUrl = "https://github.com/mickschroeder/potatogame";
-const authorUrl = "https://mickschroeder.com";
+const appStoreUrl = siteConfig.appStoreUrl;
+const macAppStoreUrl = siteConfig.macAppStoreUrl;
+const githubUrl = siteConfig.githubUrl;
+const authorUrl = siteConfig.authorUrl;
 const privacyPath = `${localizedPath}/privacy-policy/`;
 const privacyUrl = `https://potatogame.mickschroeder.com${privacyPath}`;
+
+const screenshots = [
+	{ src: screenshot1, label: "Screenshot 1" },
+	{ src: screenshot2, label: "Screenshot 2" },
+	{ src: screenshot3, label: "Screenshot 3" },
+	{ src: screenshot4, label: "Screenshot 4" },
+];
 ---
 
 <BaseLayout
@@ -47,6 +60,34 @@ const privacyUrl = `https://potatogame.mickschroeder.com${privacyPath}`;
 				</p>
 			</div>
 			<div class="flex flex-wrap items-center gap-4">
+				
+				<a href={githubUrl} rel="noreferrer" class="btn btn-outline px-6 py-3 text-base">
+					{t.ctaGithub}
+				</a>
+				<a class="text-sm font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={authorUrl} rel="noreferrer">
+					{t.ctaAuthor}
+				</a>
+			</div>
+
+		</div>
+
+		<div class="relative">
+			<div class="absolute -inset-6 rounded-[28px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl" aria-hidden="true"></div>
+			<div class="relative glass-card rounded-[24px] p-6">
+				<div class="mt-6 flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-b from-[#2f1d14] to-[#3c271a] p-6 ring-1 ring-white/10">
+					<img
+						src="/Potato Game-iOS-Default-1024x1024@1x.png"
+						alt="Potato Game icon"
+						class="h-32 w-32 rounded-3xl shadow-2xl shadow-black/50"
+						loading="lazy"
+					/>
+					<div class="text-center">
+						<p class="text-sm font-semibold uppercase tracking-[0.12em] text-amber-200/80">{t.cardLevel}</p>
+						<p class="text-3xl font-bold text-amber-50">{t.cardGoal}</p>
+						<p class="mt-1 text-sm text-amber-100/70">{t.cardHint}</p>
+					</div>
+				</div>
+			<div class="flex flex-wrap items-center justify-center gap-4 pt-6">
 				<a href={appStoreUrl} rel="noreferrer" class="inline-block">
 					<img
 						src="/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
@@ -61,46 +102,7 @@ const privacyUrl = `https://potatogame.mickschroeder.com${privacyPath}`;
 						class="h-12 w-auto drop-shadow-lg transition hover:scale-[1.02] hover:drop-shadow-2xl"
 					/>
 				</a>
-				<a href={githubUrl} rel="noreferrer" class="btn btn-outline px-6 py-3 text-base">
-					{t.ctaGithub}
-				</a>
-				<a class="text-sm font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={authorUrl} rel="noreferrer">
-					{t.ctaAuthor}
-				</a>
-			</div>
-
-		</div>
-
-		<div class="relative">
-			<div class="absolute -inset-6 rounded-[28px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl" aria-hidden="true"></div>
-			<div class="relative glass-card rounded-[24px] p-6">
-				<div class="flex items-center justify-between gap-4 rounded-xl bg-[#25160f]/80 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-amber-200/80 ring-1 ring-white/10">
-					<span>{t.cardEyebrow}</span>
-					<span class="rounded-full bg-amber-400/15 px-3 py-1 text-[11px] text-amber-50 ring-1 ring-amber-300/30">{t.cardPill}</span>
-				</div>
-				<div class="mt-6 flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-b from-[#2f1d14] to-[#3c271a] p-6 ring-1 ring-white/10">
-					<img
-						src="/Potato Game-iOS-Default-1024x1024@1x.png"
-						alt="Potato Game icon"
-						class="h-32 w-32 rounded-3xl shadow-2xl shadow-black/50"
-						loading="lazy"
-					/>
-					<div class="text-center">
-						<p class="text-sm font-semibold uppercase tracking-[0.12em] text-amber-200/80">{t.cardLevel}</p>
-						<p class="text-3xl font-bold text-amber-50">{t.cardGoal}</p>
-						<p class="mt-1 text-sm text-amber-100/70">{t.cardHint}</p>
-					</div>
-					<div class="mt-3 grid w-full grid-cols-2 gap-3 text-left text-sm text-amber-100/80">
-						<div class="rounded-xl bg-white/5 p-3 ring-1 ring-white/10">
-							<p class="text-xs uppercase tracking-[0.14em] text-amber-200/70">{t.cardBoost.label}</p>
-							<p class="text-lg font-semibold text-amber-50">{t.cardBoost.value}</p>
-						</div>
-						<div class="rounded-xl bg-white/5 p-3 ring-1 ring-white/10">
-							<p class="text-xs uppercase tracking-[0.14em] text-amber-200/70">{t.cardTimer.label}</p>
-							<p class="text-lg font-semibold text-amber-50">{t.cardTimer.value}</p>
-						</div>
-					</div>
-				</div>
+</div>
 			</div>
 		</div>
 	</section>
@@ -122,6 +124,7 @@ const privacyUrl = `https://potatogame.mickschroeder.com${privacyPath}`;
 						<span class="h-3 w-3 rounded-full bg-amber-300 shadow shadow-amber-900/40" aria-hidden="true"></span>
 					</div>
 				</div>
+			
 			))}
 		</div>
 	</section>
@@ -145,13 +148,15 @@ const privacyUrl = `https://potatogame.mickschroeder.com${privacyPath}`;
 				<p class="max-w-2xl text-sm text-amber-100/80">{t.screenshotsLead}</p>
 			</div>
 			<div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-				{["Screenshot 1.png", "Screenshot 2.png", "Screenshot 3.png", "Screenshot 4.png"].map((file) => (
+				{screenshots.map((shot) => (
 					<div class="flex items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-[#1f140d]/80 shadow-lg shadow-black/30">
-						<img
-							src={`/${encodeURI(file)}`}
-							alt={`${t.screenshotsTitle} ${file}`}
-							loading="lazy"
+						<Image
+							src={shot.src}
+							alt={`${t.screenshotsTitle} ${shot.label}`}
+							widths={[480, 720, 1080]}
+							formats={["avif", "webp", "png"]}
 							class="h-80 w-full object-contain p-3 transition duration-500 hover:scale-[1.02] sm:h-96"
+							loading="lazy"
 						/>
 					</div>
 				))}

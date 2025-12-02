@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { defaultLocale, getStrings } from "../i18n/strings";
+import { siteConfig } from "../config/site";
 
 type Props = {
 	title: string;
@@ -21,9 +22,9 @@ const {
 	description,
 	t = strings,
 	localizedPath = locale === defaultLocale ? "" : `/${locale}`,
-	appStoreUrl,
-	githubUrl,
-	authorUrl,
+	appStoreUrl = siteConfig.appStoreUrl,
+	githubUrl = siteConfig.githubUrl,
+	authorUrl = siteConfig.authorUrl,
 	privacyPath,
 	children,
 } = Astro.props as Props;
@@ -41,6 +42,14 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | Potato Game</title>
 		<meta name="description" content={description ?? t.metaDescription} />
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-W0BLPG9RXK"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-W0BLPG9RXK');
+		</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link

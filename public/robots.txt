@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://potatogame.mickschroeder.com/sitemap-index.xml

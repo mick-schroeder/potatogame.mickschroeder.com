@@ -1,15 +1,16 @@
 ---
 import BaseLayout from "./base.astro";
 import { defaultLocale, getStrings } from "../i18n/strings";
+import { siteConfig } from "../config/site";
 
 const { title = "Potato Game", description } = Astro.props;
 const locale = Astro.currentLocale ?? defaultLocale;
 const t = getStrings(locale);
 const localizedPath = locale === defaultLocale ? "" : `/${locale}`;
 
-const appStoreUrl = "https://apps.apple.com/app/id0000000000";
-const githubUrl = "https://github.com/mickschroeder/potatogame";
-const authorUrl = "https://mickschroeder.com";
+const appStoreUrl = siteConfig.appStoreUrl;
+const githubUrl = siteConfig.githubUrl;
+const authorUrl = siteConfig.authorUrl;
 const privacyPath = `${localizedPath}/privacy-policy/`;
 ---
 
