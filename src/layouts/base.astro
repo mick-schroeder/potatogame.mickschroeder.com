@@ -1,0 +1,122 @@
+---
+import "../styles/global.css";
+import { defaultLocale, getStrings } from "../i18n/strings";
+
+type Props = {
+	title: string;
+	description?: string;
+	t?: ReturnType<typeof getStrings>;
+	localizedPath?: string;
+	appStoreUrl: string;
+	githubUrl: string;
+	authorUrl: string;
+	privacyPath: string;
+	children: any;
+};
+
+const locale = Astro.currentLocale ?? defaultLocale;
+const strings = getStrings(locale);
+const {
+	title,
+	description,
+	t = strings,
+	localizedPath = locale === defaultLocale ? "" : `/${locale}`,
+	appStoreUrl,
+	githubUrl,
+	authorUrl,
+	privacyPath,
+	children,
+} = Astro.props as Props;
+---
+
+<html lang={locale} class="scroll-smooth">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Potato Game</title>
+		<meta name="description" content={description ?? t.metaDescription} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:global(body) {
+				font-family: "Space Grotesk", "Manrope", "DM Sans", system-ui, -apple-system, sans-serif;
+				background-color: #1a0f0b;
+			}
+			:global(.glass-card) {
+				background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+				backdrop-filter: blur(10px);
+			}
+		</style>
+	</head>
+
+	<body class="min-h-screen bg-gradient-to-b from-[#1a0f0b] via-[#2c1a13] to-[#5a3f2b] text-amber-50 antialiased">
+		<div class="absolute inset-0 -z-10 overflow-hidden">
+			<div class="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-[#f6c899]/40 via-[#b57b4f]/40 to-transparent blur-3xl" />
+			<div class="absolute bottom-10 right-0 h-96 w-96 rounded-full bg-gradient-to-tr from-[#734b2f]/40 via-[#f7d29a]/30 to-transparent blur-3xl" />
+			<div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_90%_10%,rgba(255,255,255,0.05),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(0,0,0,0.25),transparent_35%)]" />
+		</div>
+
+		<header class="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-8">
+			<a class="flex items-center gap-3 hover:opacity-90 transition" href={`${localizedPath || "/"}`}>
+				<img
+					src="/Potato Game-iOS-Default-1024x1024@1x.png"
+					alt="Potato Game app icon"
+					class="h-12 w-12 rounded-2xl shadow-lg shadow-black/30"
+					loading="lazy"
+				/>
+				<div>
+					<p class="text-sm uppercase tracking-[0.2em] text-amber-200/70">Potato Game</p>
+					<p class="text-lg font-semibold text-amber-50">{t.brandSubtitle}</p>
+				</div>
+			</a>
+			<nav class="hidden items-center gap-6 text-sm font-semibold text-amber-100/80 md:flex">
+				<a class="hover:text-amber-100" href={`${localizedPath || "/"}`}>{t.navHome ?? "Home"}</a>
+				<a class="hover:text-amber-100" href={`${localizedPath}#features`}>{t.navFeatures}</a>
+				<a class="hover:text-amber-100" href={privacyPath}>{t.navPrivacy}</a>
+				<a class="hover:text-amber-100" href={authorUrl} rel="noreferrer">{t.navAuthor}</a>
+				<a href={appStoreUrl} rel="noreferrer" class="btn btn-outline">{t.navCta}</a>
+			</nav>
+			<div class="flex items-center gap-3 md:hidden">
+				<a class="text-sm font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={`${localizedPath || "/"}`}>
+					{t.navHome ?? "Home"}
+				</a>
+				<a class="text-sm font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={`${localizedPath}#features`}>
+					{t.navFeatures}
+				</a>
+				<a class="text-sm font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={privacyPath}>{t.navPrivacy}</a>
+				<a href={appStoreUrl} rel="noreferrer" class="btn btn-outline text-sm">{t.navCta}</a>
+			</div>
+		</header>
+
+		<main class="relative mx-auto flex max-w-6xl flex-col gap-16 px-6 pb-20 md:pb-28">
+			<slot />
+		</main>
+
+		<footer class="border-t border-white/10 bg-[#1a0f0b]/80">
+			<div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 text-sm text-amber-100/80 md:flex-row md:items-center md:justify-between">
+				<div class="space-y-1">
+					<p class="font-semibold text-amber-50">Potato Game</p>
+					<p class="text-amber-100/70">{t.footerBlurb}</p>
+				</div>
+				<div class="flex flex-wrap items-center gap-4">
+					<a class="hover:text-amber-50" href={appStoreUrl} rel="noreferrer">{t.footerLinks.appStore}</a>
+					<a class="hover:text-amber-50" href={githubUrl} rel="noreferrer">{t.footerLinks.github}</a>
+					<a class="hover:text-amber-50" href={authorUrl} rel="noreferrer">{t.footerLinks.author}</a>
+					<a class="hover:text-amber-50" href={privacyPath}>{t.footerLinks.privacy}</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

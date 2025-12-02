@@ -1,13 +1,14 @@
-# Astro with Tailwind
+# Potato Game site
 
-```sh
-npm create astro@latest -- --template with-tailwindcss
-```
+Astro + Tailwind + shadcn-styled components for the iOS/macOS game “Potato Game.”
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/with-tailwindcss/devcontainer.json)
+## Quick start
+1. Install deps: `npm install`
+2. Dev server: `npm run dev` (default at `http://localhost:4321`)
+3. Production build: `npm run build`
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
+## Localization
+Astro i18n is enabled with `defaultLocale: en` and `ga` as an additional locale. Text strings live in `src/i18n/strings.ts`. Default routes are unprefixed; `/ga/...` serves Irish.
 
-For complete setup instructions, please see our [Tailwind Integration Guide](https://docs.astro.build/en/guides/integrations-guide/tailwind).
+## License
+MIT License – see `LICENSE`.
