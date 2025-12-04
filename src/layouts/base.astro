@@ -76,7 +76,7 @@ const {
 			<div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_90%_10%,rgba(255,255,255,0.05),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(0,0,0,0.25),transparent_35%)]" />
 		</div>
 
-		<header class="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-8">
+		<header class="relative mx-auto flex max-w-6xl flex-col items-start gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
 			<a class="flex items-center gap-3 hover:opacity-90 transition" href={`${localizedPath || "/"}`}>
 				<img
 					src="/Potato Game-iOS-Default-1024x1024@1x.png"
@@ -96,7 +96,7 @@ const {
 				<a class="hover:text-amber-100" href={authorUrl} rel="noreferrer">{t.navAuthor}</a>
 				<a href={appStoreUrl} rel="noreferrer" class="btn btn-outline">{t.navCta}</a>
 			</nav>
-			<div class="md:hidden flex flex-wrap items-center gap-3 text-sm">
+			<div class="md:hidden flex w-full flex-wrap items-center gap-3 text-sm">
 				<a class="font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={`${localizedPath || "/"}`}>
 					{t.navHome ?? "Home"}
 				</a>
