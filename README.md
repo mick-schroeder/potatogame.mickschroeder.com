@@ -4,7 +4,6 @@
 
 Astro + Tailwind + shadcn-styled components for the iOS/macOS game “Potato Game.”
 
-(ASSET_LICENSE.md)
 ## Quick start
 1. Install deps: `npm install`
 2. Dev server: `npm run dev` (default at `http://localhost:4321`)
