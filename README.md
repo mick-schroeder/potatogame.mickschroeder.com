@@ -1,9 +1,8 @@
 # Potato Game site
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Assets: CC BY-NC 4.0](https://img.shields.io/badge/Content-CC%20BY--NC%204.0-blue.svg)](CONTENT_LICENSE.md)
 
 Astro + Tailwind + shadcn-styled components for the iOS/macOS game “Potato Game.”
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Assets: CC BY-NC 4.0](https://img.shields.io/badge/Content-CC%20BY--NC%204.0-blue.svg)]
 
 (ASSET_LICENSE.md)
 ## Quick start
