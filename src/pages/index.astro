@@ -59,7 +59,9 @@ const screenshots = [
 				</p>
 			</div>
 			<div class="flex flex-wrap items-center gap-4">
-				
+				<a href="#download" rel="noreferrer" class="btn btn-outline px-6 py-3 text-base">
+					{t.navCta}
+				</a>
 				<a href={githubUrl} rel="noreferrer" class="btn btn-outline px-6 py-3 text-base">
 					{t.ctaGithub}
 				</a>
@@ -74,9 +76,11 @@ const screenshots = [
 			<div class="absolute -inset-6 rounded-[28px] bg-gradient-to-br from-white/10 via-white/5 to-transparent blur-2xl" aria-hidden="true"></div>
 			<div class="relative glass-card rounded-[24px] p-6">
 				<div class="mt-6 flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-b from-[#2f1d14] to-[#3c271a] p-6 ring-1 ring-white/10">
-					<img
+					<Image
 						src="/Potato Game-iOS-Default-1024x1024@1x.png"
 						alt="Potato Game icon"
+						width={1024}
+						height={1024}
 						class="h-32 w-32 rounded-3xl shadow-2xl shadow-black/50"
 						loading="lazy"
 					/>
@@ -88,18 +92,22 @@ const screenshots = [
 				</div>
 			<div class="flex flex-wrap items-center justify-center gap-4 pt-6">
 				<a href={appStoreUrl} rel="noreferrer" class="inline-block">
-					<img
+					<Image
 						src="/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
 						alt={t.ctaDownload}
 						aria-label="Download on the App Store"
+						width={120}
+						height={40}
 						class="h-12 w-auto drop-shadow-lg transition hover:scale-[1.02] hover:drop-shadow-2xl"
 					/>
 				</a>
 				<a href={macAppStoreUrl} rel="noreferrer" class="inline-block">
-					<img
+					<Image
 						src="/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg"
 						alt="Download on the Mac App Store"
 						aria-label="Download on the Mac App Store"
+						width={156}
+						height={40}
 						class="h-12 w-auto drop-shadow-lg transition hover:scale-[1.02] hover:drop-shadow-2xl"
 					/>
 				</a>
@@ -161,6 +169,38 @@ const screenshots = [
 						/>
 					</div>
 				))}
+			</div>
+		</div>
+	</section>
+
+	<section id="download" class="space-y-6 rounded-2xl border border-white/10 bg-gradient-to-r from-[#2a1a12] to-[#352015] p-6 shadow-lg shadow-black/30">
+		<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+			<div class="space-y-1">
+				<p class="text-sm font-semibold uppercase tracking-[0.18em] text-amber-200/70">{t.downloads.eyebrow}</p>
+				<h3 class="text-2xl font-bold text-amber-50">{t.downloads.title}</h3>
+				<p class="text-sm text-amber-100/80">{t.downloads.body}</p>
+			</div>
+			<div class="flex flex-wrap items-center gap-3">
+				<a href={appStoreUrl} rel="noreferrer" class="inline-block">
+					<Image
+						src="/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+						alt={t.ctaDownload}
+						aria-label="Download on the App Store"
+						width={120}
+						height={40}
+						class="h-12 w-auto drop-shadow-lg transition hover:scale-[1.02] hover:drop-shadow-2xl"
+					/>
+				</a>
+				<a href={macAppStoreUrl} rel="noreferrer" class="inline-block">
+					<Image
+						src="/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+						alt="Download on the Mac App Store"
+						aria-label="Download on the Mac App Store"
+						width={156}
+						height={40}
+						class="h-12 w-auto drop-shadow-lg transition hover:scale-[1.02] hover:drop-shadow-2xl"
+					/>
+				</a>
 			</div>
 		</div>
 	</section>

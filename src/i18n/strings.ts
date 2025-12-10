@@ -32,6 +32,7 @@ type Strings = {
 	featuresTitle: string;
 	featuresLead: string;
 	features: FeatureBlock[];
+	downloads: { eyebrow: string; title: string; body: string };
 	screenshotsTitle: string;
 	screenshotsLead: string;
 	stats: StatBlock[];
@@ -109,6 +110,11 @@ const translations: Record<Locale, Strings> = {
 				body: "1,000 free levels to play right away, plus level packs to purchase for even more content.",
 			},
 		],
+		downloads: {
+			eyebrow: "Play on iOS & Mac",
+			title: "Get Potato Game on the App Store",
+			body: "Download for free on iPhone, iPad, and Mac.",
+		},
 		screenshotsTitle: "Screenshots",
 		screenshotsLead: "A peek at the levels, gameplay, and native Apple UI in Potato Game.",
 		stats: [
@@ -210,6 +216,11 @@ const translations: Record<Locale, Strings> = {
 				body: "1,000 leibhéal saor in aisce le seinm láithreach, móide pacáistí leibhéal le ceannach do dhúshláin bhreise.",
 			},
 		],
+		downloads: {
+			eyebrow: "Imir ar iOS & Mac",
+			title: "Faigh Potato Game ar an App Store",
+			body: "Íoslódáil saor in aisce ar iPhone, iPad, agus Macs.",
+		},
 		screenshotsTitle: "Seatáin scáileáin",
 		screenshotsLead: "Léargas ar na puzail imtharraingthe, cumaisc emoji, agus comhéadan donn te i Potato Game.",
 		stats: [

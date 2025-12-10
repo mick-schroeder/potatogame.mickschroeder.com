@@ -4,6 +4,7 @@ import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import { defaultLocale, getStrings, locales, type Locale } from "../i18n/strings";
 import { siteConfig } from "../config/site";
 import { pathWithLocale } from "../lib/paths";
+import { Image } from "astro:assets";
 
 type Props = {
   title?: string;
@@ -69,6 +70,15 @@ const ldGraph = [
     description: resolvedDescription,
     inLanguage: locale,
   },
+  {
+    "@type": "MobileApplication",
+    name: siteConfig.title,
+    url: appStoreUrl,
+    applicationCategory: "GameApplication",
+    operatingSystem: "iOS",
+    image: ogImage,
+    sameAs: [siteConfig.siteUrl, githubUrl, authorUrl].filter(Boolean),
+  },
   ...jsonLd,
 ];
 const ld = { "@context": "https://schema.org", "@graph": ldGraph };
@@ -125,24 +135,6 @@ const privacyLink = privacyPath ?? `${localizedPath}/privacy-policy/`;
 		))}
 
 		<script type="application/ld+json" set:html={JSON.stringify(ld)} />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
-			rel="stylesheet"
-		/>
-		<style>
-			:global(body) {
-				font-family: "Space Grotesk", "Manrope", "DM Sans", system-ui, -apple-system, sans-serif;
-				background-color: #1a0f0b;
-			}
-			:global(.glass-card) {
-				background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-				border: 1px solid rgba(255, 255, 255, 0.08);
-				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-				backdrop-filter: blur(10px);
-			}
-		</style>
 	</head>
 
 	<body class="min-h-screen bg-gradient-to-b from-[#1a0f0b] via-[#2c1a13] to-[#5a3f2b] text-amber-50 antialiased">
@@ -153,9 +145,11 @@ const privacyLink = privacyPath ?? `${localizedPath}/privacy-policy/`;
 
 		<header class="relative mx-auto flex max-w-6xl flex-col items-start gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
 			<a class="flex items-center gap-3 hover:opacity-90 transition" href={`${localizedPath || "/"}`}>
-				<img
+				<Image
 					src="/Potato Game-iOS-Default-1024x1024@1x.png"
 					alt="Potato Game app icon"
+					width={1024}
+					height={1024}
 					class="h-12 w-12 rounded-2xl shadow-lg shadow-black/30"
 					loading="lazy"
 				/>
@@ -166,9 +160,9 @@ const privacyLink = privacyPath ?? `${localizedPath}/privacy-policy/`;
 			</a>
 			<nav class="hidden items-center gap-6 text-sm font-semibold text-amber-100/80 md:flex">
 				<a class="hover:text-amber-100" href={`${localizedPath || "/"}`}>{t.navHome ?? "Home"}</a>
-				<a class="hover:text-amber-100" href={`${localizedPath}#features`}>{t.navFeatures}</a>
+				<a class="hover:text-amber-100" href={`/${localizedPath}#features`}>{t.navFeatures}</a>
 				<a class="hover:text-amber-100" href={privacyLink}>{t.navPrivacy}</a>
-				<a class="hover:text-amber-100" href={authorUrl} rel="noreferrer">{t.navAuthor}</a>
+				<a class="hover:text-amber-100" href={authorUrl} rel="noreferrer" target="_blank">{t.navAuthor}</a>
 				<a href={appStoreUrl} rel="noreferrer" class="btn btn-outline">{t.navCta}</a>
 			</nav>
 			<div class="md:hidden flex w-full flex-wrap items-center gap-3 text-sm">
@@ -179,7 +173,7 @@ const privacyLink = privacyPath ?? `${localizedPath}/privacy-policy/`;
 					{t.navFeatures}
 				</a>
 				<a class="font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={privacyLink}>{t.navPrivacy}</a>
-				<a class="font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={authorUrl} rel="noreferrer">{t.navAuthor}</a>
+				<a class="font-semibold text-amber-100/80 underline-offset-4 hover:underline" href={authorUrl} rel="noreferrer" target="_blank">{t.navAuthor}</a>
 				<a href={appStoreUrl} rel="noreferrer" class="btn btn-outline text-sm">{t.navCta}</a>
 			</div>
 		</header>
@@ -197,7 +191,7 @@ const privacyLink = privacyPath ?? `${localizedPath}/privacy-policy/`;
 				<div class="flex flex-wrap items-center gap-4">
 					<a class="hover:text-amber-50" href={appStoreUrl} rel="noreferrer">{t.footerLinks.appStore}</a>
 					<a class="hover:text-amber-50" href={githubUrl} rel="noreferrer">{t.footerLinks.github}</a>
-					<a class="hover:text-amber-50" href={authorUrl} rel="noreferrer">{t.footerLinks.author}</a>
+					<a class="hover:text-amber-50" href={authorUrl} rel="noreferrer" target="_blank">{t.footerLinks.author}</a>
 					<a class="hover:text-amber-50" href={privacyLink}>{t.footerLinks.privacy}</a>
 				</div>
 			</div>
